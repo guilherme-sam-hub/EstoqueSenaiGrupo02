@@ -35,7 +35,7 @@ public class UsuarioService {
                 .collect(Collectors.toList());
     }
 
-    public UsuarioResponseDto buscaPorId(Long id, UsuarioRequestDto dadosCadastro){
+    public UsuarioResponseDto buscarPorId(Long id){
         Usuario usuario = usuarioRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Usuário não encontrado"));
         return new UsuarioResponseDto(usuario);

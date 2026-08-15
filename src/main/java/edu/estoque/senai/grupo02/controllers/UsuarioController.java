@@ -27,25 +27,25 @@ public class UsuarioController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<List<UsuarioResponseDto>> buscar(@PathVariable Long id) {
+    public ResponseEntity<UsuarioResponseDto> buscar(@PathVariable Long id) {
         return ResponseEntity.ok(usuarioService.buscarPorId(id));
     }
     @PostMapping
-    public String cadastrar(
+    public ResponseEntity<UsuarioResponseDto> cadastrar(
             @Valid @RequestBody UsuarioRequestDto dadosCadastro
             ){
         return ResponseEntity.status(HttpStatus.CREATED)
                 .body(usuarioService.salvar(dadosCadastro));
     }
     @PutMapping("/{id}")
-    public ResponseEntity<List<UsuarioResponseDto>> atualizar(
+    public ResponseEntity<UsuarioResponseDto> atualizar(
             @PathVariable Long id,
             @Valid @RequestBody UsuarioRequestDto dadosCadastro
     ) {
         return ResponseEntity.ok(usuarioService.atualizar(id, dadosCadastro));
     }
-    @DeleteMapping
-    public ResponseEntity<void> deletar(@PathVariable Long id){
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> deletar(@PathVariable Long id){
         usuarioService.deletar(id);
         return ResponseEntity.noContent().build();
     }
