@@ -8,9 +8,7 @@ import org.springframework.stereotype.Controller;
 @Controller
 public class LoginController {
 
-<<<<<<< HEAD
-=======
     @Autowired
     public UsuarioService usuarioService;
->>>>>>> desenvolvimento
+
 }
