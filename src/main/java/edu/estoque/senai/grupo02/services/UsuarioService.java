@@ -2,14 +2,13 @@ package edu.estoque.senai.grupo02.services;
 
 import edu.estoque.senai.grupo02.dtos.requests.LoginRequestDto;
 import edu.estoque.senai.grupo02.dtos.requests.UsuarioRequestDto;
+import edu.estoque.senai.grupo02.dtos.responses.UsuarioResponseDto;
 import edu.estoque.senai.grupo02.entities.Usuario;
 import edu.estoque.senai.grupo02.repositories.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
-
-import java.util.Optional;
+import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class UsuarioService {
@@ -17,31 +16,57 @@ public class UsuarioService {
     @Autowired
     private UsuarioRepository usuarioRepository;
 
-    public Usuario salvar(UsuarioRequestDto dadosCadastro){
+    public UsuarioResponseDto salvar(UsuarioRequestDto dadosCadastro){
         if (usuarioRepository.findByEmail(dadosCadastro.getEmail()).isPresent()) {
             throw new RuntimeException("E-mail já cadastrado");
         }
         //Da DTO pra Entity
-        Usuario novoUsuario = new Usuario();
-        novoUsuario.setNome(dadosCadastro.getNome());
-        novoUsuario.setEmail(dadosCadastro.getEmail());
-        novoUsuario.setSenha(dadosCadastro.getSenha());
-
-        return usuarioRepository.save(novoUsuario);
+        Usuario usuario = new Usuario();
+        usuario.setNome(dadosCadastro.getNome());
+        usuario.setEmail(dadosCadastro.getEmail());
+        usuario.setSenha(dadosCadastro.getSenha());
+        Usuario usuarioSalvo = usuarioRepository.save(usuario);
+        return new UsuarioResponseDto(usuarioSalvo);
     }
-    public Usuario validarLogin(LoginRequestDto dadosLogin){
-        //busca no banco usuario<->email
-        Optional<Usuario> usuarioPossivel = usuarioRepository.findByEmail(dadosLogin.getEmail());
+    public List<UsuarioResponseDto> listarTodos(){
+        return usuarioRepository.findAll()
+                .stream()
+                .map(UsuarioResponseDto::new)
+                .collect(Collectors.toList());
+    }
 
-        //se email existe
-        if (usuarioPossivel.isPresent()) {
-            Usuario usuario = usuarioPossivel.get();
+    public UsuarioResponseDto buscaPorId(Long id, UsuarioRequestDto dadosCadastro){
+        Usuario usuario = usuarioRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Usuário não encontrado"));
+        return new UsuarioResponseDto(usuario);
+    }
+    public UsuarioResponseDto atualizar(Long id, UsuarioRequestDto dadosCadastro) {
+        Usuario usuario = usuarioRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Usuário não encontrado"));
 
-            // se senha digitada <-> senha no banco
-            if (usuario.getSenha().equals(dadosLogin.getSenha())) {
-            return usuario; //login
+        usuarioRepository.findByEmail(dadosCadastro.getEmail()).ifPresent(usuarioExistente -> {
+            if (!usuarioExistente.getId().equals(id)) {
+                throw new RuntimeException("E-mail já cadastrado");
             }
-        }
-        return null; //se falhar nas condicionais
+        });
+        usuario.setNome(dadosCadastro.getNome());
+        usuario.setEmail(dadosCadastro.getEmail());
+        usuario.setSenha(dadosCadastro.getSenha());
+        Usuario usuarioAtualizado = usuarioRepository.save(usuario);
+        return new UsuarioResponseDto(usuarioAtualizado);
     }
-}
+    public void deletar(long id){
+        if(!usuarioRepository.existsById(id)){
+            throw new RuntimeException("Usuário não encontrado");
+        }
+        usuarioRepository.deleteById(id);
+    }
+    public UsuarioResponseDto validarLogin(LoginRequestDto dadosCadastro) {
+        return usuarioRepository.findByEmail(dadosCadastro.getEmail())
+                .filter(usuarioPossivel -> usuarioPossivel.getSenha().equals(dadosCadastro.getSenha()))
+                .map(UsuarioResponseDto::new)
+                .orElse(null);
+    }
+
+    }
+
