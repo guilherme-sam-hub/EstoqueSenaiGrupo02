@@ -1,10 +1,39 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Usuários</title>
+    <link rel="stylesheet" href="./cadastro.css">
 </head>
 <body>
+    <header class="cabecalho">
+        <img src="../cadastro/imagens/imgTitulo.PNG" alt="Usuarios">
 
+        <nav class="nav">
+            <a href="../index.html">Tela de Login</a>
+            <a href="../estoque/estoque.html">Tela de Estoque de Produtos</a>
+        </nav>
+    </header>
+
+    <div class="cardInput">
+        <img class="imgTitulo" src="../cadastro/imagens/imgInput.PNG" alt="">
+        <hr>
+        <form>
+            <label for="nome">Nome</label>
+            <input type="text" placeholder="Digite o nome do usuário">
+
+            <label for="email">E-mail</label>
+            <input type="email" placeholder="Digite o e-mail do usuário">
+
+            <label for="senha">Senha</label>
+            <input type="password" placeholder="Digite a senha">
+
+            <button><img class="imgBtn" src="../cadastro/imagens/imgBtCad.PNG" alt="Botão Cadastrar"></button>
+        </form>
+    </div>
+
+
+    <script src="./cadastro.js"></script>
 </body>
 </html>

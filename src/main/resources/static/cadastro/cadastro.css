@@ -1,0 +1,78 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    width: 100%; 
+    overflow-y: auto;
+    min-height: 100vh;
+    display: flex;
+    font-family:  'Inter', system-ui, -apple-system, sans-serif;
+    background-color: #F8F9FA;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+}
+
+.cabecalho{
+    width: 100%;
+    height: 20vh;
+    background-color: #031329;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.5rem;
+    
+}
+
+.cabecalho img{
+    width: 20vw;
+    height: auto;
+}
+
+.nav {
+    display: flex;
+    gap:2.5rem;
+    
+}
+
+.nav a{
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 0.4rem;
+    border-radius: 8px;
+}
+
+.nav a:hover{
+    
+    text-decoration: underline;
+}
+
+/* Estilizando Card de Input */
+
+.cardInput{
+    width:90vw;
+    height: 50vh;
+    background-color: #FFFFFF;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 1rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 2.5);
+    margin-top: 0;
+    
+    
+}
+
+.imgTitulo{
+    width: 28vw;
+    height: 20vh;
+}
+.imgBtn{
+    width: 15vw;
+    height: auto;
+}
