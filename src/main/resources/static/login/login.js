@@ -1,6 +1,6 @@
 const email = document.getElementById("inputEmail").value;
 const senha = document.getElementById("inputSenha").value;
-const apiURL = "";
+const apiURL = "http://localhost:8080/login";
 
 
 async function fazerLogin(){
@@ -20,7 +20,7 @@ async function fazerLogin(){
         const dados = await resposta.json();
 
         if(resposta.ok){
-            window.location.href = "/templates/estoque/estoque.html";
+            window.location.href = "./estoque/estoque.html";
         }else{
             alert(dados.mensagem);
         }
