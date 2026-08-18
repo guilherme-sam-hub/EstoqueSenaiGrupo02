@@ -49,14 +49,4 @@ public class UsuarioController {
         usuarioService.deletar(id);
         return ResponseEntity.noContent().build();
     }
-    @PostMapping("/login")
-    public ResponseEntity<?> login(@RequestBody LoginRequestDto dadosLogin){
-        UsuarioResponseDto usuario = usuarioService.validarLogin(dadosLogin);
-        if(usuario != null) {
-            return ResponseEntity.ok(usuario);
-        }
-        return ResponseEntity.status(HttpStatus.UNAUTHORIZED)
-                .body("Dados inválidos");
-    }
-
 }
