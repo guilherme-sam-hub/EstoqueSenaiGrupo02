@@ -113,7 +113,7 @@ listaUsuarios.addEventListener("click", async function(event) {
 
             email.value = usuario.email;
 
-            senha.value = usuario.senha;
+            senha.value = "";
 
             idEditando = id;
 
