@@ -1,56 +1,79 @@
-package edu.estoque.senai.grupo02.entities;
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
+package estoque.entities;
 
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "usuarios")
+@Table(name = "usuario")
+
+
+/**
+ *
+ * @author sandy
+ */
 public class Usuario {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(nullable = false)
-    private Long id;
 
-    @Column(nullable = false)
-    private String nome;
+@Id
 
-    @Column(nullable = false, unique = true)
-    private String email;
+@GeneratedValue(strategy = GenerationType.IDENTITY)
 
-    @Column(nullable = false)
-    private String senha;
+private Long id;
 
-    public Usuario() {
-    }
+@Column (nullable = false, length = 100)
 
-    public String getSenha() {
-        return senha;
-    }
+private String nome;
 
-    public void setSenha(String senha) {
-        this.senha = senha;
-    }
+@Column (nullable = false, unique = true, length = 100)
 
-    public String getEmail() {
-        return email;
-    }
+private String email;
 
-    public void setEmail(String email) {
-        this.email = email;
-    }
+@Column(nullable = false)
 
-    public String getNome() {
+private String senha;
+
+public Usuario (){}
+
+public Usuario (String nome, String email, String senha){
+    this.nome = nome;
+    this.email = email;
+    this.senha = senha;
+}
+
+public Long getId() {
+    return id;
+}
+    
+public void setId( Long id) {
+    this.id = id;
+}
+
+public String getNome() {
         return nome;
-    }
+}
 
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
+public void setNome ( String nome) {
+    this.nome = nome;
+}
 
-    public Long getId() {
-        return id;
-    }
+public String getEmail(){
+    return email;
+}
 
-    public void setId(Long id) {
-        this.id = id;
-    }
+public void setEmail( String email) {
+    this.email = email;
+}
+
+public  String getSenha (){
+        return senha;
+}
+
+public void setSenha ( String senha ){
+    this.senha =  senha;
+}
+
+
+
 }
