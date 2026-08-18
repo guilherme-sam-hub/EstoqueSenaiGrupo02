@@ -20,40 +20,56 @@
         <img class="imgTitulo" src="../cadastro/imagens/imgInput.PNG" alt="">
         <hr>
 
-        <form class="form">
+        <form class="form" id="formCadastro">
             <div>
                 <label for="nome">Nome</label>
-                <input type="text" placeholder="Digite o nome do usuário">
+                <input name="nome" id="nomeInput" type="text" placeholder="Digite o nome do usuário">
             </div>
 
             <div>
                 <label for="email">E-mail</label>
-                <input type="email" placeholder="Digite o e-mail do usuário">
+                <input name="email"  id="emailInput" type="email" placeholder="Digite o e-mail do usuário">
             </div>
 
             <div>
                 <label for="senha">Senha</label>
-                <input type="password" placeholder="Digite a senha">
+                <input name="senha" id="senhaInput" type="password" placeholder="Digite a senha">
             </div>
 
-            <button><img class="imgBtn" src="../cadastro/imagens/imgBtCad.PNG" alt="Botão Cadastrar"></button>
+            <button type="submit" id="btnCadastrar"><img class="imgBtn" src="../cadastro/imagens/imgBtCad.PNG" alt="Botão Cadastrar"></button>
         </form>
     </div>
 
     <div class="cardLista">
         <img class="imgLista" src="../cadastro/imagens/imgLista.PNG" alt="">
         <table class="table">
-            <thead> <!-- cabeçalho -->
-                <tr> <!-- uma linha -->
-                    <th class="colunaId" >ID</th> <!-- célula de cabeçalho -->
+            <thead>                                          <!-- cabeçalho -->
+                <tr class="linhaCab">                        <!-- uma linha -->
+                    <th class="colunaId" >ID</th>            <!-- célula de cabeçalho -->
                     <th>Nome</th>
                     <th>E-mail</th>
                     <th>Ações</th>
-
                 </tr>
             </thead>
+
+            <tbody id="listaUsuarios" class="tBody">                            <!-- dados da tabela -->
+                <tr class="linhaBod">                        <!-- uma linha -->
+                    <td class="colunaId"> </td>              <!-- ID --> 
+                    <td> </td>                               <!-- Nome -->
+                    <td> </td>                               <!-- E-mail -->
+
+                    <td class="linhaBotao">
+                        <button id="btnEditar" class="botoes"><img class="imgEdtr" src="../cadastro/imagens/btnEdtr.png" alt="Botão de Editar"></button>
+                        <button id="btnExcluir" class="botoes"><img class="imgExclr" src="../cadastro/imagens/btnExclr.png" alt="Botão de Excluir"></button>
+                    </td>
+                </tr>
+            </tbody>
         </table>
+        <hr>
     </div>
+    
+
+    <footer class="rodape"><p>Sistema de Cadastro de Usuários &copy; 2026 - Equipe 2 SENAI</p></footer>
 
 
     <script src="./cadastro.js"></script>
