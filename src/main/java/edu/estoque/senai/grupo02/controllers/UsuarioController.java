@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@Restcontroller
+@RestController
 @RequestMapping("/usuario")
 public class UsuarioController {
 
@@ -28,7 +28,7 @@ public class UsuarioController {
 
     @GetMapping("/{id}")
     public ResponseEntity<List<UsuarioResponseDto>> buscar(@PathVariable Long id) {
-        return ResponseEntity.ok(usuarioService.buscarPorId(id));
+        return ResponseEntity.ok(usuarioService.buscaPorId(id));
     }
     @PostMapping
     public String cadastrar(
