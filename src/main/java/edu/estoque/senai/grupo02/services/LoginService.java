@@ -8,7 +8,7 @@ import java.util.Optional;
 
 @Service
 public class LoginService {
-    public final UsuarioRepository usuarioRepository;
+    private final UsuarioRepository usuarioRepository;
 
     public LoginService(UsuarioRepository usuarioRepository) {
         this.usuarioRepository = usuarioRepository;
