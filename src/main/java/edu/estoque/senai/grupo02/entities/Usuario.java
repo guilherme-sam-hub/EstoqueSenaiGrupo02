@@ -1,8 +1,5 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
-package estoque.entities;
+package edu.estoque.senai.grupo02.entities;
+
 
 import jakarta.persistence.*;
 
