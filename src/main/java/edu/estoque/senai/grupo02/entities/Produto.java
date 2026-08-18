@@ -7,7 +7,7 @@ public class Produto {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(nullable = false)
-    private Long id;
+    private Long git statusid;
 
     public Long getId() {
         return id;
