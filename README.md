@@ -41,7 +41,7 @@ para garantir um código limpo e escalável:
 
 ---
 
-## 📋 Pré-requisitos
+## Pré-requisitos
 
 Antes de executar o projeto, certifique-se de ter as seguintes ferramentas instaladas:
 
@@ -52,7 +52,7 @@ Antes de executar o projeto, certifique-se de ter as seguintes ferramentas insta
 
 ---
 
-## ⚙️ Configuração do Banco de Dados
+## Configuração do Banco de Dados
 
 1. Abra o seu cliente MySQL e crie o banco de dados:
 
@@ -147,13 +147,13 @@ port: 8080
 
 ---
 
-## 📄 Licença
+## Licença
 
 Este projeto foi desenvolvido para fins educacionais no curso do **SENAI**.
 
 ---
 
-## 🤝 Contato
+##  Contato
 
 Em caso de dúvidas ou sugestões, entre em contato com os integrantes do grupo através dos perfis do GitHub listados acima.
 
