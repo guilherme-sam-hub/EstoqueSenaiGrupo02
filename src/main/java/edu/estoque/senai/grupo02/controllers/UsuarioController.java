@@ -27,8 +27,13 @@ public class UsuarioController {
     }
 
     @GetMapping("/{id}")
+<<<<<<< HEAD
     public ResponseEntity<UsuarioResponseDto> buscar(@PathVariable Long id) {
         return ResponseEntity.ok(usuarioService.buscarPorId(id));
+=======
+    public ResponseEntity<List<UsuarioResponseDto>> buscar(@PathVariable Long id) {
+        return ResponseEntity.ok(usuarioService.buscaPorId(id));
+>>>>>>> 0bb299375592026fac7addfa1a4cda260ccf4763
     }
     @PostMapping
     public ResponseEntity<UsuarioResponseDto> cadastrar(
