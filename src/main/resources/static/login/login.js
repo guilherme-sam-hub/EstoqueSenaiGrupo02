@@ -1,10 +1,10 @@
-const email = document.getElementById("inputEmail").value;
-const senha = document.getElementById("inputSenha").value;
+
 const apiURL = "http://localhost:8080/login";
 
 
 async function fazerLogin(){
-    
+    const email = document.getElementById("inputEmail").value;
+    const senha = document.getElementById("inputSenha").value;
     try{
         const resposta = await fetch(apiURL, {
             method: "POST",
