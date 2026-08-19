@@ -158,15 +158,4 @@ Este projeto foi desenvolvido para fins educacionais no curso do **SENAI**.
 Em caso de dúvidas ou sugestões, entre em contato com os integrantes do grupo através dos perfis do GitHub listados acima.
 
 
-# 1. Garante que você está na branch principal
-git switch main
-
-# 2. Restaura os 3 arquivos específicos pegando a versão da branch 'desenvolvimento'
-# (Nota: Ajuste o caminho 'src/main/resources/static/' se os seus arquivos estiverem em outra pasta, como na raiz do projeto)
-git restore --source=desenvolvimento -- src/main/resources/static/Estoque.html src/main/resources/static/estoque.js src/main/resources/static/index.html
-
-# 3. Adiciona, commita e envia para a main no GitHub
-git add .
-git commit -m "feat: sincroniza arquivos de frontend (Estoque.html, estoque.js, index.html) na main"
-git push origin main
 
