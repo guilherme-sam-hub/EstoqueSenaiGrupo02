@@ -61,12 +61,6 @@ public class UsuarioService {
         }
         usuarioRepository.deleteById(id);
     }
-    public UsuarioResponseDto validarLogin(LoginRequestDto dadosCadastro) {
-        return usuarioRepository.findByEmail(dadosCadastro.getEmail())
-                .filter(usuarioPossivel -> usuarioPossivel.getSenha().equals(dadosCadastro.getSenha()))
-                .map(UsuarioResponseDto::new)
-                .orElse(null);
-    }
 
     }
 
