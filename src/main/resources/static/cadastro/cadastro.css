@@ -162,16 +162,17 @@ body{
 .linhaCab{
     background-color: #dddada;
     border-radius: 8px;
-    
+    border-bottom: none;
 
 }
 
-.table th, .table td{
-    flex:1;
+.table th, .table td {
+    flex: 1;
     text-align: left;
     font-weight: bold;
     display: flex;
     align-items: center;
+    min-width: 0; /* Impede que textos longos quebrem o flexbox */
 }
 /* 5. AGORA FUNCIONA: Forçando apenas a coluna do ID a ser pequena */
 .colunaId {
@@ -206,7 +207,9 @@ body{
 
 .linhaBotao{
     display: flex;
+    flex:1;
     gap: 1rem;
+
 }
 
 

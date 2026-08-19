@@ -15,7 +15,7 @@ async function listarUsuarios(){ //função que lista usuários do banco de dado
 
         usuarios.forEach(usuario => { //
             const linha = document.createElement("tr");
-
+            linha.classList.add("linhaBod");
             linha.innerHTML = `
             <td class="colunaId">${usuario.id}</td>
             <td>${usuario.nome}</td>
@@ -76,7 +76,7 @@ formCadastro.addEventListener("submit", async (e)=>{
 
         formCadastro.reset();
 
-        idEditing = null;
+        idEditando = null;
 
         await listarUsuarios();
 
