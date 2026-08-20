@@ -62,23 +62,20 @@ Antes de executar o projeto, certifique-se de ter as seguintes ferramentas insta
 
 2. Configure as credenciais de acesso no arquivo application.yml do projeto:
 
-   ```properties
-   spring:
-datasource:
-url: jdbc:mysql://localhost:3306/estoque_senai?createDatabaseIfNotExist=true&serverTimezone=UTC
-username: root
-password: sua_senha_aqui # <-- TROQUE PELA SUA SENHA REAL DO MYSQL
-jpa:
-hibernate:
-ddl-auto: update
-show-sql: true
-properties:
-hibernate:
-dialect: org.hibernate.dialect.MySQLDialect
-
-server:
-port: 8080
-   ```
+   ```yaml
+    spring:
+        datasource:
+          url: jdbc:mysql://localhost:3306/estoque_senai?createDatabaseIfNotExist=true&serverTimezone=UTC
+          username: root
+          password: SUA_SENHA_AQUI # <-- Substitua pela sua senha do MySQL
+        jpa:
+          hibernate:
+            ddl-auto: update
+          show-sql: true
+          properties:
+            hibernate:
+              dialect: org.hibernate.dialect.MySQLDialect
+    ```
 
 ---
 
